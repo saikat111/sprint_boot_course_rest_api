@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class CouseServiceImpl implements CourseService{
     List<Course> list ;
@@ -44,6 +46,11 @@ public class CouseServiceImpl implements CourseService{
            }
        });
         return course;
+    }
+
+    @Override
+    public void deleteCourse(Long courseId) {
+        list = this.list.stream().filter(e -> e.getId()!=courseId).collect(Collectors.toList());
     }
 
 }

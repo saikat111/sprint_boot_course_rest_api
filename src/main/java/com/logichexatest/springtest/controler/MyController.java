@@ -2,6 +2,8 @@ package com.logichexatest.springtest.controler;
 import com.logichexatest.springtest.entitiy.Course;
 import com.logichexatest.springtest.services.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,6 +32,15 @@ public class MyController {
     @PutMapping("/courses")
     public Course updatecourse(@RequestBody Course course){
         return this.courseService.updatecourse(course);
+    }
+    @DeleteMapping("courses/{courseId}")
+    public ResponseEntity<HttpStatus> deleteCourse(@PathVariable String courseId){
+        try{
+            this.courseService.deleteCourse(Long.parseLong(courseId));
+            return  new ResponseEntity<HttpStatus>(HttpStatus.OK);
+        } catch (Exception e) {
+            return  new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
 }
