@@ -8,5 +8,5 @@ public interface CourseService {
     public List<Course> getCourses();
     public Course getCourse(long courseId);
     public Course addCourse(Course course);
-    public  Course updatecourse(long courseId,Course course);
+    public  Course updatecourse(Course course);
 }

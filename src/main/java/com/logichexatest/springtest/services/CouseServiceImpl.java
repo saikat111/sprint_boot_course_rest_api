@@ -36,8 +36,13 @@ public class CouseServiceImpl implements CourseService{
     }
 
     @Override
-    public Course updatecourse(long courseId, Course course) {
-        list.set(Math.toIntExact(courseId),course);
+    public Course updatecourse( Course course) {
+       list.forEach(e ->{
+           if(e.getId() == course.getId()){
+             e.setTitle(course.getTitle());
+             e.setDiscription(course.getDiscription());
+           }
+       });
         return course;
     }
 

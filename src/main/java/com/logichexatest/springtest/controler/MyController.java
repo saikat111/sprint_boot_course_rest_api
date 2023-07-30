@@ -27,9 +27,9 @@ public class MyController {
     public Course addCourse(@RequestBody Course course){
         return this.courseService.addCourse(course);
     }
-    @PutMapping("/courses/{courseId}")
-    public Course updatecourse(@PathVariable String courseId,@RequestBody Course course){
-        return this.courseService.updatecourse(Long.parseLong(courseId),course);
+    @PutMapping("/courses")
+    public Course updatecourse(@RequestBody Course course){
+        return this.courseService.updatecourse(course);
     }
 
 }
