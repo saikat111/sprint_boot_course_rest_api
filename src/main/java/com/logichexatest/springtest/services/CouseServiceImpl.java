@@ -16,4 +16,16 @@ public class CouseServiceImpl implements CourseService{
     public List<Course> getCourses() {
         return list;
     }
+
+    @Override
+    public Course getCourse(long courseId) {
+        Course c = null;
+        for(Course  course :list){
+            if(course.getId()==courseId){
+                c = course;
+                break;
+            }
+        }
+        return c;
+    }
 }
