@@ -28,4 +28,17 @@ public class CouseServiceImpl implements CourseService{
         }
         return c;
     }
+
+    @Override
+    public Course addCourse(Course course) {
+        list.add(course);
+        return course;
+    }
+
+    @Override
+    public Course updatecourse(long courseId, Course course) {
+        list.set(Math.toIntExact(courseId),course);
+        return course;
+    }
+
 }
